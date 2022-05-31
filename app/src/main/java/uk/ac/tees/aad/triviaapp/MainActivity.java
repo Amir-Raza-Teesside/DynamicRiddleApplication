@@ -21,23 +21,30 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
 
     Button btn;
     TextView t;
 
-    private RequestQueue q;
+   // private RequestQueue q;
 
     Button btn2,btn3,btn4,btn5;
     TextView question;
+
+    ArrayList<QuestionModel> list;
+    QuestionModel QuestionModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        q = Volley.newRequestQueue(this);
+
+
+        list = new ArrayList<>();
         btn = findViewById(R.id.button);
         btn2 = findViewById(R.id.button2);
         btn3 = findViewById(R.id.button3);
@@ -69,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                                 JSONArray xxx  = obj.getJSONArray("incorrect_answers");
 
                               //  xxx.getJSONArray(0)
-                                t.setText(xxx.getString(0)+xxx.getString(1));
+                              //  t.setText(xxx.getString(0)+xxx.getString(1));
 
 
 
@@ -84,11 +91,15 @@ public class MainActivity extends AppCompatActivity {
                                 question.setText(x.toString());
 
 
+                               list.add(i,new QuestionModel(question.toString(),answer.toString(),xxx.getString(0),xxx.getString(1), xxx.getString(2)));
 
 
 
 
-                                //Toast.makeText(MainActivity.this,x,Toast.LENGTH_LONG).show();
+
+
+
+                                Toast.makeText(MainActivity.this,list.get(0).getAnswer(),Toast.LENGTH_LONG).show();
 
                               //  t.setText(x.toString());
                             }
@@ -108,7 +119,7 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
-                q.add(request);
+                Singleton.getInstance(MainActivity.this).addToRequestQueue(request);
             }
         });
 
