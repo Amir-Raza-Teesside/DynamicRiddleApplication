@@ -3,6 +3,7 @@ package uk.ac.tees.aad.triviaapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,7 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-   // private RequestQueue q;
+   ArrayList<QuestionModel> models;
+
+   TextView t;
 
 
 
@@ -37,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        models = Selection.models;
+        t= findViewById(R.id.MainQuestion);
+
+        Log.w("Fir", models.get(0).getQuestion());
+
+        t.setText(models.get(0).getQuestion().toString());
 
 
 

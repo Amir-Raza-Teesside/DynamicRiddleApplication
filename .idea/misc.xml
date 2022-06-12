@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Projects/triviaapp/app/src/main/res/drawable/background.xml" value="0.11018518518518519" />
+        <entry key="..\:/Projects/triviaapp/app/src/main/res/drawable/question_shape.xml" value="0.11018518518518519" />
         <entry key="..\:/Projects/triviaapp/app/src/main/res/layout/activity_main.xml" value="0.14666666666666667" />
+        <entry key="..\:/Projects/triviaapp/app/src/main/res/layout/activity_selection.xml" value="0.1" />
       </map>
     </option>
   </component>
