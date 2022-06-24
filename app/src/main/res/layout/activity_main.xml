@@ -88,7 +88,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Main Question"
+            android:text="Who scored the highest goal in Europe league?"
+            android:gravity="center"
             android:textSize="22sp"
             android:textStyle="bold" />
 

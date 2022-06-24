@@ -32,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
    ArrayList<QuestionModel> models;
 
    TextView t;
+   Button btn;
+   Button btn2,btn3,btn4;
 
 
 
@@ -43,10 +45,18 @@ public class MainActivity extends AppCompatActivity {
 
         models = Selection.models;
         t= findViewById(R.id.MainQuestion);
+        btn = findViewById(R.id.button3);
+        btn2 = findViewById(R.id.button);
+        btn3 = findViewById(R.id.button4);
+        btn4 = findViewById(R.id.button5);
 
         Log.w("Fir", models.get(0).getQuestion());
 
         t.setText(models.get(0).getQuestion().toString());
+        btn.setText(models.get(0).getAnswer().toString());
+        btn2.setText(models.get(0).getOptionA().toString());
+        btn3.setText(models.get(0).getOptionB().toString());
+        btn4.setText(models.get(0).getOptionC().toString());
 
 
 

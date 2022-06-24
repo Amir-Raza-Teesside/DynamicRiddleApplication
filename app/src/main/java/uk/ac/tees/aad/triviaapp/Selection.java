@@ -39,10 +39,19 @@ public class Selection extends AppCompatActivity {
         setContentView(R.layout.activity_selection);
         models = new ArrayList<>();
 
-
-
-        btn= findViewById(R.id.button6);
         btn2 = findViewById(R.id.button2);
+        btn= findViewById(R.id.button6);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+                Toast.makeText(Selection.this, models.get(0).getOptionA().toString(),Toast.LENGTH_LONG).show();
+
+            }
+        });
+
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,10 +73,16 @@ public class Selection extends AppCompatActivity {
                     JSONArray array = response.getJSONArray("results");
                     JSONObject obj = array.getJSONObject(i);
                     String question = obj.getString("question");
+
+                    String rightAnswer = obj.getString("correct_answer");
+                    JSONArray arr = obj.getJSONArray("incorrect_answers");
+
+
                     //Toast.makeText(Selection.this,question,Toast.LENGTH_LONG).show();
 
+                   Toast.makeText(Selection.this, "sddsd",Toast.LENGTH_LONG).show();
+                    models.add(new QuestionModel(question,rightAnswer,arr.getString(0),arr.getString(1),arr.getString(2)));
 
-                    models.add(new QuestionModel(question,"sd","as","sdds","s"));
                     }
 
 
